@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Sayt nomi va tavsifi
 export const metadata: Metadata = {
-  title: "Tezaurus",
-  description: "O'zbek tilining izohli va tezaurus lug'ati",
+  title: "\"Boburnoma\" tezaurusi",
+  description: "\"Boburnoma\" asaridagi fe'l-atvor leksemalari elektron tezaurusi",
 };
 
 // Advanced UI siri: Mobil telefonda ekranni tasodifan yaqinlashtirib (zoom) 

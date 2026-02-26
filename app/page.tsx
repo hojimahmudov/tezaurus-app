@@ -8,7 +8,6 @@ import wordsData from "../data.json";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Qidiruv mantig'i: so'zning o'zidan yoki izohidan (semantika) qidiradi
   const filteredWords = wordsData.filter((item) =>
     item.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.semantics.toLowerCase().includes(searchTerm.toLowerCase())
@@ -16,8 +15,25 @@ export default function Home() {
 
   return (
     <main className="max-w-2xl mx-auto p-4 pb-20">
-      {/* Qidiruv qismi (Sticky - ekranning tepadagi qismida qotib turadi) */}
-      <div className="sticky top-0 z-10 bg-[var(--background)] pt-4 pb-4 border-b border-[var(--hint-color)]/20">
+      
+      {/* 🚀 YANGI QO'SHILGAN SARLAVHA QISMI */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center pt-6 pb-4"
+      >
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--text)] mb-2 tracking-tight leading-tight">
+          <span className="text-[var(--button-bg)]">"Boburnoma"</span> fe'l-atvor leksemalari
+        </h1>
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--hint-color)]/10">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[var(--hint-color)]">
+            Elektron tezaurusi
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Qidiruv qismi (Sticky) */}
+      <div className="sticky top-0 z-10 bg-[var(--background)] pt-2 pb-4 border-b border-[var(--hint-color)]/20">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--hint-color)] w-5 h-5" />
           <input
@@ -42,14 +58,11 @@ export default function Home() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="bg-[var(--hint-color)]/5 rounded-3xl p-5 border border-[var(--hint-color)]/10 shadow-sm"
               >
-                {/* Sarlavha */}
                 <h2 className="text-3xl font-bold text-[var(--button-bg)] mb-4">
                   {item.word}
                 </h2>
 
-                {/* Ma'lumotlar bloki */}
                 <div className="space-y-4">
-                  {/* Semantika */}
                   <div>
                     <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
                       <BookOpen className="w-4 h-4" />
@@ -58,7 +71,6 @@ export default function Home() {
                     <p className="text-[var(--text)] font-medium">{item.semantics}</p>
                   </div>
 
-                  {/* Etimologiya */}
                   <div className="bg-[var(--hint-color)]/10 p-3 rounded-xl border-l-4 border-[var(--button-bg)]">
                     <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
                       <History className="w-4 h-4" />
@@ -67,7 +79,6 @@ export default function Home() {
                     <p className="text-[var(--text)] text-sm leading-relaxed">{item.etymology}</p>
                   </div>
 
-                  {/* Morfologiya va Talaffuz (2 ta ustunli grid) */}
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
@@ -85,7 +96,6 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Tarjimalar */}
                   <div className="pt-2 border-t border-[var(--hint-color)]/20">
                     <div className="flex items-center gap-2 text-[var(--hint-color)] mb-2">
                       <Languages className="w-4 h-4" />
