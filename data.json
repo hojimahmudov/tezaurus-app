@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "word": "Xushxulq",
+    "morphology": "Xush va xulq so'zlari qo'shilmasidan hosil qilingan, sifat so'z turkumiga oid",
+    "pronunciation": "Xushxulq",
+    "etymology": "Bu tojikcha sifat “yoqimli” ma'nosini anglatadigan xush so'ziga “tabiat, kayfiyat, axloq” ma'nolarini anglatuvchi xulq so'zi qo'shilmasi asosida hosil qilingan.",
+    "semantics": "Yaxshi xulqli, yaxshi axloqli",
+    "collocation": "Xushxulq + subyekt: xushxulq kishi",
+    "translations": {
+      "en": "polite",
+      "ru": "вежливый",
+      "tr": "kibar",
+      "kk": "сірауы",
+      "tg": "xushmuomila"
+    }
+  }
+]
