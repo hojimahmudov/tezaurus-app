@@ -4,7 +4,7 @@
     "word": "Xushxulq",
     "morphology": "Xush va xulq so'zlari qo'shilmasidan hosil qilingan, sifat so'z turkumiga oid",
     "pronunciation": "Xushxulq",
-    "etymology": "Bu tojikcha sifat “yoqimli” ma'nosini anglatadigan xush so'ziga “tabiat, kayfiyat, axloq” ma'nolarini anglatuvchi xulq so'zi qo'shilmasi asosida hosil qilingan.",
+    "etymology": "Bu tojikcha sifat “yoqimli” ma’nosini anglatadigan xush so'ziga “tabiat, kayfiyat, axloq” ma’nolarini anglatuvchi xulq so'zi qo'shilmasi asosida hosil qilingan.",
     "semantics": "Yaxshi xulqli, yaxshi axloqli",
     "collocation": "Xushxulq + subyekt: xushxulq kishi",
     "translations": {
@@ -13,6 +13,326 @@
       "tr": "kibar",
       "kk": "сірауы",
       "tg": "xushmuomila"
+    }
+  },
+  {
+    "id": 2,
+    "word": "Xushta’b",
+    "morphology": "Xush va ta’b morfematik birliklari asosida hosil qilingan. Sifat so'z turkumiga oid.",
+    "pronunciation": "Xushta’b",
+    "etymology": "Xush fors tilidan olingan “yoqimli” ma’nosini anglatuvchi qo'shimcha bo'lsa, ta’b so'zi arabiy o'zlashma hisoblanib, “tabiat, tabiiy xislat” ma’nolarini anglatadi.",
+    "semantics": "Xush so'zi “yaxshi, yoqimli” ma’nolarini ifoda etadi. Ta’b so'zi o'zbek tilida kishining xarakterida, ko'ngli, xohish, ixtiyor ma'nolarida qo'llanadi. Sinonimlari: Xushtabiat. Antonimlari: g‘amgin.",
+    "collocation": "xushta’b + subyekt qolipida (xushta’b inson).",
+    "translations": {
+      "en": "cheerful",
+      "ru": "веселый",
+      "tr": "neşeli",
+      "kk": "kóńildi",
+      "tg": "shodmon"
+    }
+  },
+  {
+    "id": 3,
+    "word": "Xushhol",
+    "morphology": "Sifat so'z turkumiga mansub, “xush” va “hol” birliklari asosida hosil qilingan derivat",
+    "pronunciation": "Xushhol",
+    "etymology": "Fors tilidan olingan “xush” so'zi hamda arabiy “kayfiyat, holat” ma’nolarini anglatuvchi hol leksemalari asosida hosil qilingan.",
+    "semantics": "Yaxshi kayfiyat, quvnoq holat, shodumonlik holatiga nisbatan ishlatiladigan leksema. Sinonimlari: shod, xursand, quvnoq. Antonimlari: g`amgin, xafa, mahzun.",
+    "collocation": "Xushhol + subyekt: xushhol kishi. Xushhol + ravish holi: xushhollik bilan. Xushhol + fe’l: xushhol boʻlmoq.",
+    "translations": {
+      "en": "happy, cheerful, joyful",
+      "ru": "веселый, рад, довольный",
+      "tr": "neşeli, keyifli",
+      "kk": "kөңіldі, quanыshtы",
+      "tg": "xursand, shod, xurram"
+    }
+  },
+  {
+    "id": 4,
+    "word": "Hazzol",
+    "morphology": "Sifat so'z turkumiga oid birlik",
+    "pronunciation": "Hazzol",
+    "etymology": "Arabcha o'zlashma hisoblanadi. Asl o'zagi “hazil”, “mutoyiba” ma’nolarini anglatuvchi hazl so'zidan kelib chiqqan",
+    "semantics": "Hazilkash, hazil qiluvchi. O'tkir so'zli, so'zga chechan insonga nisbatan ishlatiladi. Sinonimlari: hazilkash, mutoyibachi. Antonimi: jiddiy.",
+    "collocation": "Individual shaklda faol.",
+    "translations": {
+      "en": "joker",
+      "ru": "шутник, остряк, весельчак",
+      "tr": "şakacı, nüktedan",
+      "kk": "-",
+      "tg": "hazlkash, shӯxtab’"
+    }
+  },
+  {
+    "id": 5,
+    "word": "Shirinzabon",
+    "morphology": "Sifat so'z turkumiga mansub, “shirin” va “zabon” birliklarining o'zaro qo'shiluvidan hosil qilingan butunlik",
+    "pronunciation": "Shirinzabon",
+    "etymology": "Fors tilidan olingan “shirin” (mazali, totli) va “zabon” (til) leksemalari asosida hosil qilingan",
+    "semantics": "Shirinso'z, xushmuomala, nutqiy muomalasi yaxshi darajada. Sinonimlari: shirinso'z, xushkalom, fasih. Antonimlari: qo'pol.",
+    "collocation": "Shirinzabon + subyekt: shirin zabon inson. Shirinzabon + fe’l: shirinzabon boʻlmoq.",
+    "translations": {
+      "en": "sweet-spoken, eloquent",
+      "ru": "сладкоречивый",
+      "tr": "-",
+      "kk": "-",
+      "tg": "shirinsuxan"
+    }
+  },
+  {
+    "id": 6,
+    "word": "Fasih",
+    "morphology": "Sifat turkumiga doir so'z",
+    "pronunciation": "Fasih",
+    "etymology": "Arab tilidagi “nutqiy ravonlik”, “so'zga ustalik” ma’nolarini anglatuvchi fasoha so'zidan hosil qilingan.",
+    "semantics": "Nutqi tushunarli va ravon, jozibador bo'lgan shaxsga nisbatan qo'llanuvchi fe’l-atvorni anglatuvchi leksema. Sinonimlari: so'zga usta, notiq, chechan. Antonimlari: gapga no'noq.",
+    "collocation": "Fasih + subyekt: fasih zot. Fasih + fe’l: fasih gapirmoq.",
+    "translations": {
+      "en": "eloquent",
+      "ru": "красноречивый",
+      "tr": "-",
+      "kk": "-",
+      "tg": "faseh"
+    }
+  },
+  {
+    "id": 7,
+    "word": "Xushsuhbat",
+    "morphology": "Sifat so'z turkumiga oid tuzilma.",
+    "pronunciation": "Xushsuhbat (ba’zan xussuhbat)",
+    "etymology": "Xush+suhbat. Forsiy+arabiy o'zlashma. Xush – “yoqimli”; suhbat – “birlashma” ma’nolarini ifoda etadi.",
+    "semantics": "Ijobiy muloqot qobiliyatiga ega insonga nisbatan ishlatiladigan ta’rif. Antonimi: kamgap.",
+    "collocation": "Xushsuhbat + subyekt: xushsuhbat inson. Xushsuhbat + fe’l: xushsuhbat bo'lmoq.",
+    "translations": {
+      "en": "engaging conversationalist, pleasant company",
+      "ru": "приятный собеседник",
+      "tr": "-",
+      "kk": "-",
+      "tg": "xушсуҳбат"
+    }
+  },
+  {
+    "id": 8,
+    "word": "Durust",
+    "morphology": "Sifat so'z turkumiga mansub, turlanmaydi, so'z-gap bo'lib kela oladi.",
+    "pronunciation": "Durust (ayrim hollarda durus)",
+    "etymology": "Forsiy o'zlashma hisoblanadi, “halol”, “to'g'ri” ma’nolariga ega.",
+    "semantics": "Yaxshi, sog', sog'lom, yaqin va qalin munosabatlarga nisbatan qo'llanuvchi leksema. Sinonimlari: yaxshi, tuzuk. Antonimi: yomon.",
+    "collocation": "Durust + ot: durust ish. Durust + fe’l: durust bo'lmoq. So'roq shaklida: durustmisan?",
+    "translations": {
+      "en": "good, correct, well",
+      "ru": "правильный, верный, хороший",
+      "tr": "dürüst",
+      "kk": "-",
+      "tg": "дуруст"
+    }
+  },
+  {
+    "id": 9,
+    "word": "Shujo’",
+    "morphology": "Sifat so'z turkumiga oid so'z. Arabcha ismi foil formasida.",
+    "pronunciation": "Shujo’",
+    "etymology": "Arabiy o'zlashma. “Jasurlik”, “shijoatli” ma’nolarida qo'llanuvchi shajoa so'zidan kelib chiqqan.",
+    "semantics": "“Shijoatli” ma’nosida qo'llanadi. Botir, shijoat bilan harakat qiladigan.",
+    "collocation": "-",
+    "translations": {
+      "en": "courageous",
+      "ru": "смелый",
+      "tr": "cesur",
+      "kk": "batyl",
+      "tg": "ҷasur"
+    }
+  },
+  {
+    "id": 10,
+    "word": "Mardona",
+    "morphology": "Sifat so'z turkumi, birlikda qo'llanadi, turlanmaydi. Mard/ona",
+    "pronunciation": "Mardona",
+    "etymology": "Forsiy o'zlashma: mardlarcha, mardlik ko'rsatib",
+    "semantics": "Mardlarcha, mardlar kabi. Hozirgi o'zbek tilida mardonavor shakli ham faol qo'llanadi.",
+    "collocation": "-",
+    "translations": {
+      "en": "courageously, gallantly",
+      "ru": "мужественно, смело, благородно",
+      "tr": "mertçe",
+      "kk": "-",
+      "tg": "мардона"
+    }
+  },
+  {
+    "id": 11,
+    "word": "Azamat",
+    "morphology": "Aslan sifat so'z turkumi, shaxsga nisbat berilishi uning ot so'z turkumi sifatida qo'llanishiga zamin yaratgan.",
+    "pronunciation": "Azamat",
+    "etymology": "Arabiy o'zlashma. “Katta, buyuk, ulug`” ma’nolarini ifoda etadi.",
+    "semantics": "Mard, jasur, botir. Sinonimi: jasur, qo'rqmas, bahodir. Antonimi: qo'rqoq.",
+    "collocation": "Azamat + ot: azamat yigit, azamat tog'lar. Undov so'z shaklida: Azamat!",
+    "translations": {
+      "en": "hero, brave person",
+      "ru": "герой, богатырь, отважный",
+      "tr": "-",
+      "kk": "-",
+      "tg": "азамат"
+    }
+  },
+  {
+    "id": 12,
+    "word": "Odmi",
+    "morphology": "So'z yaxlit asosga ega: odmi; sifat so‘z turkumi.",
+    "pronunciation": "Odmi. So'z oxiridagi i tovushi qisman talaffuz qilinadi.",
+    "etymology": "Tojik tilidan o‘zlashgan so‘z.",
+    "semantics": "“Sodda, oddiy, to‘g‘ri” ma’nolari mavjud. Shuningdek ko'zga tashlanmaydigan, kamtar, sipo semalari faol. Sinonimlari: oddiy, sodda, sipo, kamtar.",
+    "collocation": "Odmi + ot: odmi odam. Odmi + fe’l: odmi yashamoq.",
+    "translations": {
+      "en": "simple",
+      "ru": "простой",
+      "tr": "basit",
+      "kk": "qarapayыm",
+      "tg": "sodda"
+    }
+  },
+  {
+    "id": 13,
+    "word": "Baxil",
+    "morphology": "Ba-xil, sifat so‘z turkumi",
+    "pronunciation": "Baxil/baxl",
+    "etymology": "Arabcha “qizg`anchilik”, “baxillik” ma’nolarini anglatuvchi buxl so`zidan yasalgan o`zlashma",
+    "semantics": "“Qizg`anchiq, rashkchi, ichi qora, hasadchi” ma’nolari mavjud. Sinonimlari: ziqna, qizg`anchiq, hasadgo`y, ichi qora. Antonimi: saxovatli, himmatli, qo`li ochiq.",
+    "collocation": "Baxil + ot: baxil odam, baxil inson... Baxil + fe’l: baxil bo`lmoq, baxillik qilmoq...",
+    "translations": {
+      "en": "stingy",
+      "ru": "скупой",
+      "tr": "cimri",
+      "kk": "сараң",
+      "tg": "бахил"
+    }
+  },
+  {
+    "id": 14,
+    "word": "Fitna",
+    "morphology": "Fit-na, sifat.",
+    "pronunciation": "Fitna/pitna",
+    "etymology": "Arabiy o`zlashma",
+    "semantics": "1. Buzg`unchi, nifoq soluvchi. 2. Urushqoq. 3. Siyosiy harakat. 4. G`arazli maqsad, buzg`unchilik. Sinonimlari: buzg`unchi, nifoqchi, urushqoq, janjalkash. Antonimi: tinchliksevar.",
+    "collocation": "Fitna + ot: fitna odam...",
+    "translations": {
+      "en": "agitator, troublemaker",
+      "ru": "смутьян, интриган",
+      "tr": "fitneci",
+      "kk": "арандатушы, бүлікші",
+      "tg": "фитнагар"
+    }
+  },
+  {
+    "id": 15,
+    "word": "Badzabon",
+    "morphology": "Bad-za-bon, sifat so`z turkumiga mansub.",
+    "pronunciation": "Badzabon",
+    "etymology": "Forsiy o`zlashma. “Yomon, “yaramas” ma’nolariga ega bad so`ziga “til” ma’nosini anglatuvchi zabon so`zining qo`shilishidan hosil qilingan ifoda",
+    "semantics": "“Yomon so`zli”, “achchiq tilli”. Ma'nodoshlari: badkalom, bemazago'y, badmaosh. Antonimlari: xushzabon, xushmaosh, xushkalom, shirinso'z.",
+    "collocation": "Badzabon + shaxs: badzabon inson...",
+    "translations": {
+      "en": "rough",
+      "ru": "грубый",
+      "tr": "kaba",
+      "kk": "өрескел",
+      "tg": "бадзабон"
+    }
+  },
+  {
+    "id": 16,
+    "word": "Purgo`y",
+    "morphology": "Pur-go`y",
+    "pronunciation": "Purgo`y",
+    "etymology": "Forsiy so`z. Pur – ko`p, go`y – so`z.",
+    "semantics": "Ko`p gapiruvchi, sergap, ezma. Sinonimi: sergap, pursuxan. Antonimi: kamgap.",
+    "collocation": "Purgo`y shaklida alohida qo`llanadi. Purgo`y+subyekt: purgo`y kishi.",
+    "translations": {
+      "en": "talkative, loquacious",
+      "ru": "говорливый, болтливый",
+      "tr": "konuşkan",
+      "kk": "сөзшең, көп сөйлейтін",
+      "tg": "пургӯ, сергап"
+    }
+  },
+  {
+    "id": 17,
+    "word": "Pursuxan",
+    "morphology": "Pur-suxan, sifat",
+    "pronunciation": "Pursuxan",
+    "etymology": "Forsiy soʻz birikmasi. Pur – koʻp, toʻla; Suxan – soʻz, nutq (arabiy oʻzakka yaqin forsiy oʻzlashma).",
+    "semantics": "Ko`p gapiruvchi, sergap, ezma. Sinonimi: sergap, purgo`y. Antonimi: kamgap.",
+    "collocation": "Alohida qo`llanishga ega.",
+    "translations": {
+      "en": "talkative, fluent",
+      "ru": "разговорчивый, красноречивый",
+      "tr": "konuşkan",
+      "kk": "сөзшең, көп сөйлейтін",
+      "tg": "пурсухан, серсухан"
+    }
+  },
+  {
+    "id": 18,
+    "word": "Mutakabbir",
+    "morphology": "Mu-ta-kab-bir, sifat so`z turkumiga oid.",
+    "pronunciation": "Mutakabbir/mutakabir",
+    "etymology": "Arab tilidagi kibr – “buyuk boʻlmoq, ulugʻ boʻlmoq” oʻzagidan hosil bo`lgan derivat.",
+    "semantics": "O`zini boshqalardan ustun qo`yuvchi, kibrli, mag`rur. Sinonimi: kibrli, takabbur, manman, gerdaygan. Antonimi: kamtar, kamtarin, xokisor, odmi.",
+    "collocation": "Mutakabbir shaklida individual shaklda qo`llanish xususiyatiga ega. Mutakabbir+subyekt: mutakabbir odam...",
+    "translations": {
+      "en": "arrogant, haughty",
+      "ru": "высокомерный, надменный",
+      "tr": "kibirli",
+      "kk": "менмен, тəкаппар",
+      "tg": "мутакаббир"
+    }
+  },
+  {
+    "id": 19,
+    "word": "Tanbal",
+    "morphology": "Tan-bal, sifat",
+    "pronunciation": "Tambal",
+    "etymology": "Forsiy o`zlashma",
+    "semantics": "“Ishyoqmas, dangasa” ma’nosida qo`llanadi. Sinonimi: dangasa, ishyoqmas, loqayd. Antonimi: serg`ayrat, g`ayratli, faol, harakatchan.",
+    "collocation": "Tanbal shaklida individual qo`llanishga ega. Tanbal+subyekt: tanbal bola....",
+    "translations": {
+      "en": "lazy, idle",
+      "ru": "ленивый",
+      "tr": "tembel",
+      "kk": "жалқау",
+      "tg": "танбал"
+    }
+  },
+  {
+    "id": 20,
+    "word": "Sharobxo`r",
+    "morphology": "Sha-rob-xo`r, sifat",
+    "pronunciation": "Sharobxo`r",
+    "etymology": "Shаrоb iсhishgа ruju qilgаn, berilgаn.",
+    "semantics": "Shаrоb iсhishgа ruju qilgаn, berilgаn. Sinonimlari: shаrоbxо‘r, аyyоsh, bаdshаrоb; mаyxо‘r. Gipоnimi: mаy iсhuvсhi, iсhuvсhi, iсhkilikbоz, аrоqxо‘r.",
+    "collocation": "Alohida shakllarda yoki subyekt bilan birgalikda qo`llanish xarakteriga ega.",
+    "translations": {
+      "en": "drinker, alcoholic, drunkard",
+      "ru": "пьяница",
+      "tr": "içici",
+      "kk": "iшушi",
+      "tg": "майхўр"
+    }
+  },
+  {
+    "id": 21,
+    "word": "Bebaxt",
+    "morphology": "be-bаxt",
+    "pronunciation": "bebaxt",
+    "etymology": "Ega emaslik ma’nosiga ega be- qo`shimchasiga baxt so`zining qo`shiluvi asosida hosil qilingan.",
+    "semantics": "Baxtsiz, baxti ochilmagan, baxti kulmagan, omadsiz inson. Sinonimlari: bаxtsiz, bаxtiqаrо, tоle’siz. Antonimlari: bаxtiyоr, bаxtli, sаоdаtli.",
+    "collocation": "Bebaxt shaklida individual qo`llanishga ega, shuningdek, bebaxt+subyekt shaklida ham foydalaniladi.",
+    "translations": {
+      "en": "unfortunate, unhappy",
+      "ru": "несчастный",
+      "tr": "tаlıhsız",
+      "kk": "бақытсыз",
+      "tg": "бадбахт"
     }
   }
 ]
