@@ -64,14 +64,11 @@ export default function Home() {
         <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--text)] mb-2 tracking-tight leading-tight">
           <span className="text-[var(--button-bg)]">"Boburnoma"</span> fe'l-atvor leksemalari
         </h1>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--hint-color)]/10 mb-4">
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--hint-color)]/10">
           <p className="text-sm font-semibold uppercase tracking-widest text-[var(--hint-color)]">
             Elektron tezaurusi
           </p>
         </div>
-        <p className="text-[var(--hint-color)] text-sm font-medium px-4">
-          Lug'atda jami <span className="font-bold text-[var(--text)]">{wordsData.length}</span> ta noyob so'z va atamalar jamlangan.
-        </p>
       </motion.div>
 
       {/* STICKY QISMI: Qidiruv va Alfavit */}
@@ -89,14 +86,14 @@ export default function Home() {
           />
         </div>
 
-        {/* Alfavit filtri (Gorizontal Skroll) */}
-        <div className="flex overflow-x-auto gap-2 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        {/* Alfavit filtri (Barcha harflar ekranda ko'rinib turishi uchun flex-wrap) */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 pb-2 pt-1">
           <button
             onClick={() => setSelectedLetter(null)}
-            className={`shrink-0 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
+            className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-sm ${
               selectedLetter === null
-                ? "bg-[var(--button-bg)] text-[var(--button-text)] shadow-md"
-                : "bg-[var(--hint-color)]/10 text-[var(--text)] hover:bg-[var(--hint-color)]/20"
+                ? "bg-[var(--button-bg)] text-[var(--button-text)]"
+                : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
             }`}
           >
             Barchasi
@@ -105,10 +102,10 @@ export default function Home() {
             <button
               key={letter}
               onClick={() => setSelectedLetter(letter)}
-              className={`shrink-0 px-4 py-2 rounded-xl text-sm font-bold transition-all min-w-[40px] ${
+              className={`shrink-0 w-[42px] h-[42px] flex items-center justify-center rounded-full text-sm font-bold transition-all shadow-sm ${
                 selectedLetter === letter
-                  ? "bg-[var(--button-bg)] text-[var(--button-text)] shadow-md"
-                  : "bg-[var(--hint-color)]/10 text-[var(--text)] hover:bg-[var(--hint-color)]/20"
+                  ? "bg-[var(--button-bg)] text-[var(--button-text)]"
+                  : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
               }`}
             >
               {letter}
