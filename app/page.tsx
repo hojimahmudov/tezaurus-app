@@ -15,6 +15,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [showAlphabet, setShowAlphabet] = useState(false);
 
   // Filterlash mantiqi
   const filteredWords = wordsData.filter((item) => {
@@ -75,7 +76,7 @@ export default function Home() {
       <div className="sticky top-0 z-20 bg-[var(--background)] pt-2 pb-4 border-b border-[var(--hint-color)]/20 shadow-sm">
         
         {/* Qidiruv paneli */}
-        <div className="relative mb-4">
+        <div className="relative mb-3">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--hint-color)] w-5 h-5" />
           <input
             type="text"
@@ -86,32 +87,70 @@ export default function Home() {
           />
         </div>
 
-        {/* Alfavit filtri (Barcha harflar ekranda ko'rinib turishi uchun flex-wrap) */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 pb-2 pt-1">
+        {/* Alfavit filtri ochiq-yopiqligini boshqaruvchi tugma */}
+        <div className="flex justify-between items-center px-1 mb-1">
           <button
-            onClick={() => setSelectedLetter(null)}
-            className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-sm ${
-              selectedLetter === null
-                ? "bg-[var(--button-bg)] text-[var(--button-text)]"
-                : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
-            }`}
+            onClick={() => setShowAlphabet(!showAlphabet)}
+            className="flex items-center gap-1.5 text-[var(--hint-color)] hover:text-[var(--text)] transition-colors py-1 focus:outline-none"
           >
-            Barchasi
+            <span className="text-xs font-bold uppercase tracking-wider">
+              {selectedLetter ? `Tanlangan harf: ${selectedLetter}` : "Alfavit bo'yicha filtrlash"}
+            </span>
+            <motion.div animate={{ rotate: showAlphabet ? 180 : 0 }} transition={{ duration: 0.3 }}>
+              <ChevronDown className="w-4 h-4" />
+            </motion.div>
           </button>
-          {ALPHABET.map((letter) => (
-            <button
-              key={letter}
-              onClick={() => setSelectedLetter(letter)}
-              className={`shrink-0 w-[42px] h-[42px] flex items-center justify-center rounded-full text-sm font-bold transition-all shadow-sm ${
-                selectedLetter === letter
-                  ? "bg-[var(--button-bg)] text-[var(--button-text)]"
-                  : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
-              }`}
+          
+          {selectedLetter && (
+            <button 
+              onClick={() => setSelectedLetter(null)}
+              className="text-xs font-bold text-[var(--button-bg)] hover:underline"
             >
-              {letter}
+              Tozalash
             </button>
-          ))}
+          )}
         </div>
+
+        {/* Alfavit filtri (Akkordeon) */}
+        <AnimatePresence>
+          {showAlphabet && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 pb-2 pt-2">
+                <button
+                  onClick={() => setSelectedLetter(null)}
+                  className={`shrink-0 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-sm ${
+                    selectedLetter === null
+                      ? "bg-[var(--button-bg)] text-[var(--button-text)]"
+                      : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
+                  }`}
+                >
+                  Barchasi
+                </button>
+                {ALPHABET.map((letter) => (
+                  <button
+                    key={letter}
+                    onClick={() => {
+                      setSelectedLetter(letter);
+                    }}
+                    className={`shrink-0 w-[42px] h-[42px] flex items-center justify-center rounded-full text-sm font-bold transition-all shadow-sm ${
+                      selectedLetter === letter
+                        ? "bg-[var(--button-bg)] text-[var(--button-text)]"
+                        : "bg-[var(--background)] border border-[var(--hint-color)]/20 text-[var(--text)] hover:bg-[var(--hint-color)]/10"
+                    }`}
+                  >
+                    {letter}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Natijalar ro'yxati (Akkordeon dizayni) */}
