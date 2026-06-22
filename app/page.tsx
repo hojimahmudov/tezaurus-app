@@ -2,123 +2,242 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, BookOpen, Volume2, History, Languages, Link } from "lucide-react";
+import { Search, BookOpen, Volume2, History, Languages, Link, ChevronDown, BookText } from "lucide-react";
 import wordsData from "../data.json";
+
+const ALPHABET = [
+  "A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
+  "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z", 
+  "O'", "G'", "SH", "CH"
+];
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const filteredWords = wordsData.filter((item) =>
-    item.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.semantics.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filterlash mantiqi
+  const filteredWords = wordsData.filter((item) => {
+    const matchesSearch = 
+      item.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.semantics.toLowerCase().includes(searchTerm.toLowerCase());
+      
+    // CH va SH kabi ikki harfli tovushlar uchun maxsus tekshiruv
+    const wordUpper = item.word.toUpperCase();
+    let matchesLetter = true;
+    
+    if (selectedLetter) {
+      if (selectedLetter === "SH" || selectedLetter === "CH") {
+        matchesLetter = wordUpper.startsWith(selectedLetter);
+      } else {
+        // Agar boshqa harf bo'lsa (masalan, S), lekin so'z SH bilan boshlansa, uni qaytarmasligi kerak.
+        if ((wordUpper.startsWith("SH") || wordUpper.startsWith("CH")) && selectedLetter !== wordUpper.substring(0, 2)) {
+           matchesLetter = false;
+        } else {
+           matchesLetter = wordUpper.startsWith(selectedLetter);
+        }
+      }
+    }
+
+    return matchesSearch && matchesLetter;
+  });
+
+  const toggleAccordion = (id: number) => {
+    // Agar ochiq turgan bo'lsa uni yopadi, bo'lmasa yangisini ochadi (bittasi ochiq turadi)
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
     <main className="max-w-2xl mx-auto p-4 pb-20">
       
-      {/* 🚀 YANGI QO'SHILGAN SARLAVHA QISMI */}
+      {/* 🚀 HERO SECTION (Bosh qism) */}
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center pt-6 pb-4"
+        className="text-center pt-6 pb-6"
       >
+        <div className="flex justify-center mb-3">
+          <div className="bg-[var(--button-bg)]/10 p-3 rounded-full text-[var(--button-bg)]">
+            <BookText className="w-8 h-8" />
+          </div>
+        </div>
         <h1 className="text-2xl md:text-3xl font-extrabold text-[var(--text)] mb-2 tracking-tight leading-tight">
           <span className="text-[var(--button-bg)]">"Boburnoma"</span> fe'l-atvor leksemalari
         </h1>
-        <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--hint-color)]/10">
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[var(--hint-color)]/10 mb-4">
           <p className="text-sm font-semibold uppercase tracking-widest text-[var(--hint-color)]">
             Elektron tezaurusi
           </p>
         </div>
+        <p className="text-[var(--hint-color)] text-sm font-medium px-4">
+          Lug'atda jami <span className="font-bold text-[var(--text)]">{wordsData.length}</span> ta noyob so'z va atamalar jamlangan.
+        </p>
       </motion.div>
 
-      {/* Qidiruv qismi (Sticky) */}
-      <div className="sticky top-0 z-10 bg-[var(--background)] pt-2 pb-4 border-b border-[var(--hint-color)]/20">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--hint-color)] w-5 h-5" />
+      {/* STICKY QISMI: Qidiruv va Alfavit */}
+      <div className="sticky top-0 z-20 bg-[var(--background)] pt-2 pb-4 border-b border-[var(--hint-color)]/20 shadow-sm">
+        
+        {/* Qidiruv paneli */}
+        <div className="relative mb-4">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--hint-color)] w-5 h-5" />
           <input
             type="text"
             placeholder="So'z yoki izoh izlang..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-2xl bg-[var(--hint-color)]/10 border-none outline-none text-[var(--text)] placeholder-[var(--hint-color)] focus:ring-2 focus:ring-[var(--button-bg)] transition-all"
+            className="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-[var(--hint-color)]/10 border border-transparent outline-none text-[var(--text)] placeholder-[var(--hint-color)] focus:border-[var(--button-bg)] focus:bg-transparent transition-all shadow-inner"
           />
+        </div>
+
+        {/* Alfavit filtri (Gorizontal Skroll) */}
+        <div className="flex overflow-x-auto gap-2 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <button
+            onClick={() => setSelectedLetter(null)}
+            className={`shrink-0 px-4 py-2 rounded-xl text-sm font-bold transition-all ${
+              selectedLetter === null
+                ? "bg-[var(--button-bg)] text-[var(--button-text)] shadow-md"
+                : "bg-[var(--hint-color)]/10 text-[var(--text)] hover:bg-[var(--hint-color)]/20"
+            }`}
+          >
+            Barchasi
+          </button>
+          {ALPHABET.map((letter) => (
+            <button
+              key={letter}
+              onClick={() => setSelectedLetter(letter)}
+              className={`shrink-0 px-4 py-2 rounded-xl text-sm font-bold transition-all min-w-[40px] ${
+                selectedLetter === letter
+                  ? "bg-[var(--button-bg)] text-[var(--button-text)] shadow-md"
+                  : "bg-[var(--hint-color)]/10 text-[var(--text)] hover:bg-[var(--hint-color)]/20"
+              }`}
+            >
+              {letter}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Natijalar ro'yxati */}
-      <div className="mt-6 space-y-6">
-        <AnimatePresence>
+      {/* Natijalar ro'yxati (Akkordeon dizayni) */}
+      <div className="mt-6 space-y-3">
+        <AnimatePresence mode="popLayout">
           {filteredWords.length > 0 ? (
-            filteredWords.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-[var(--hint-color)]/5 rounded-3xl p-5 border border-[var(--hint-color)]/10 shadow-sm"
-              >
-                <h2 className="text-3xl font-bold text-[var(--button-bg)] mb-4">
-                  {item.word}
-                </h2>
+            filteredWords.map((item) => {
+              const isExpanded = expandedId === item.id;
+              
+              return (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className={`bg-[var(--background)] border transition-colors duration-300 rounded-2xl overflow-hidden shadow-sm ${
+                    isExpanded ? "border-[var(--button-bg)]" : "border-[var(--hint-color)]/20"
+                  }`}
+                >
+                  {/* Akkordeon Bosh qismi (Clickable Header) */}
+                  <button
+                    onClick={() => toggleAccordion(item.id)}
+                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors hover:bg-[var(--hint-color)]/5 focus:outline-none"
+                  >
+                    <h2 className={`text-lg sm:text-xl font-bold uppercase tracking-wide transition-colors ${
+                      isExpanded ? "text-[var(--button-bg)]" : "text-[var(--text)]"
+                    }`}>
+                      {item.word}
+                    </h2>
+                    <motion.div
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={`flex-shrink-0 ml-4 p-1.5 rounded-full transition-colors ${
+                        isExpanded ? "bg-[var(--button-bg)]/10 text-[var(--button-bg)]" : "bg-[var(--hint-color)]/10 text-[var(--text)]"
+                      }`}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
 
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
-                      <BookOpen className="w-4 h-4" />
-                      <span className="text-sm font-medium uppercase tracking-wider">Semantikasi</span>
-                    </div>
-                    <p className="text-[var(--text)] font-medium">{item.semantics}</p>
-                  </div>
+                  {/* Akkordeon Ichidagi ma'lumotlar */}
+                  <AnimatePresence>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="p-4 sm:p-5 pt-0 space-y-4 border-t border-[var(--hint-color)]/10 mt-1">
+                          
+                          {/* Semantika */}
+                          <div className="pt-3">
+                            <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1.5">
+                              <BookOpen className="w-4 h-4" />
+                              <span className="text-xs font-bold uppercase tracking-wider">Semantikasi</span>
+                            </div>
+                            <p className="text-[var(--text)] font-medium text-sm sm:text-base leading-relaxed">{item.semantics}</p>
+                          </div>
 
-                  <div className="bg-[var(--hint-color)]/10 p-3 rounded-xl border-l-4 border-[var(--button-bg)]">
-                    <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
-                      <History className="w-4 h-4" />
-                      <span className="text-sm font-medium uppercase tracking-wider">Etimologiyasi</span>
-                    </div>
-                    <p className="text-[var(--text)] text-sm leading-relaxed">{item.etymology}</p>
-                  </div>
+                          {/* Etimologiya */}
+                          <div className="bg-[var(--hint-color)]/5 p-3.5 rounded-xl border-l-2 border-[var(--button-bg)]">
+                            <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1.5">
+                              <History className="w-4 h-4" />
+                              <span className="text-xs font-bold uppercase tracking-wider">Etimologiyasi</span>
+                            </div>
+                            <p className="text-[var(--text)] text-sm leading-relaxed">{item.etymology}</p>
+                          </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
-                        <Link className="w-4 h-4" />
-                        <span className="text-sm font-medium uppercase tracking-wider">Morfologiya</span>
-                      </div>
-                      <p className="text-[var(--text)] text-sm">{item.morphology}</p>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1">
-                        <Volume2 className="w-4 h-4" />
-                        <span className="text-sm font-medium uppercase tracking-wider">Talaffuz</span>
-                      </div>
-                      <p className="text-[var(--text)] text-sm">{item.pronunciation}</p>
-                    </div>
-                  </div>
+                          {/* Morfologiya va Talaffuz */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div className="bg-[var(--hint-color)]/5 p-3.5 rounded-xl">
+                              <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1.5">
+                                <Link className="w-4 h-4" />
+                                <span className="text-xs font-bold uppercase tracking-wider">Morfologiya</span>
+                              </div>
+                              <p className="text-[var(--text)] text-sm leading-relaxed">{item.morphology}</p>
+                            </div>
+                            <div className="bg-[var(--hint-color)]/5 p-3.5 rounded-xl">
+                              <div className="flex items-center gap-2 text-[var(--hint-color)] mb-1.5">
+                                <Volume2 className="w-4 h-4" />
+                                <span className="text-xs font-bold uppercase tracking-wider">Talaffuz</span>
+                              </div>
+                              <p className="text-[var(--text)] text-sm font-medium">{item.pronunciation}</p>
+                            </div>
+                          </div>
 
-                  <div className="pt-2 border-t border-[var(--hint-color)]/20">
-                    <div className="flex items-center gap-2 text-[var(--hint-color)] mb-2">
-                      <Languages className="w-4 h-4" />
-                      <span className="text-sm font-medium uppercase tracking-wider">Tarjimalar</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-semibold rounded-lg">🇬🇧 {item.translations.en}</span>
-                      <span className="px-3 py-1 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-semibold rounded-lg">🇷🇺 {item.translations.ru}</span>
-                      <span className="px-3 py-1 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-semibold rounded-lg">🇹🇷 {item.translations.tr}</span>
-                      <span className="px-3 py-1 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-semibold rounded-lg">🇰🇿 {item.translations.kk}</span>
-                      <span className="px-3 py-1 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-semibold rounded-lg">🇹🇯 {item.translations.tg}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))
+                          {/* Tarjimalar */}
+                          <div className="pt-2">
+                            <div className="flex items-center gap-2 text-[var(--hint-color)] mb-2.5">
+                              <Languages className="w-4 h-4" />
+                              <span className="text-xs font-bold uppercase tracking-wider">Tarjimalar</span>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              <span className="px-3 py-1.5 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-bold rounded-lg transition-colors hover:bg-[var(--button-bg)]/20">🇬🇧 {item.translations.en}</span>
+                              <span className="px-3 py-1.5 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-bold rounded-lg transition-colors hover:bg-[var(--button-bg)]/20">🇷🇺 {item.translations.ru}</span>
+                              <span className="px-3 py-1.5 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-bold rounded-lg transition-colors hover:bg-[var(--button-bg)]/20">🇹🇷 {item.translations.tr}</span>
+                              <span className="px-3 py-1.5 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-bold rounded-lg transition-colors hover:bg-[var(--button-bg)]/20">🇰🇿 {item.translations.kk}</span>
+                              <span className="px-3 py-1.5 bg-[var(--button-bg)]/10 text-[var(--button-bg)] text-xs font-bold rounded-lg transition-colors hover:bg-[var(--button-bg)]/20">🇹🇯 {item.translations.tg}</span>
+                            </div>
+                          </div>
+
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })
           ) : (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-10 text-[var(--hint-color)]"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-16 text-[var(--hint-color)]"
             >
-              Kechirasiz, so'z topilmadi...
+              <div className="flex justify-center mb-4">
+                <div className="p-4 bg-[var(--hint-color)]/10 rounded-full">
+                  <Search className="w-8 h-8 opacity-50" />
+                </div>
+              </div>
+              <p className="font-bold text-lg text-[var(--text)]">Kechirasiz, hech narsa topilmadi</p>
+              <p className="text-sm mt-2 max-w-xs mx-auto">Boshqa so'z yozib ko'ring yoki boshqa harfni tanlang.</p>
             </motion.div>
           )}
         </AnimatePresence>

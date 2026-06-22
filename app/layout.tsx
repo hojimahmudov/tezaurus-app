@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uz">
+    <html lang="uz" suppressHydrationWarning>
       <head>
         {/* Telegram Web App SDK - Telegram bilan aloqa o'rnatish uchun */}
         <Script 
